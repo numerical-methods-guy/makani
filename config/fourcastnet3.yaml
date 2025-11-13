@@ -353,3 +353,34 @@ det_fcn3_sc3_edim25_layers10:
     atmo_embed_dim: 25
     surf_embed_dim: 35
     aux_embed_dim: 12
+
+###########################################################################################################################
+# Minimal test configuration for small GPUs (~8GB)
+###########################################################################################################################
+
+# Minimal ensemble config for testing on small GPUs (7-8GB VRAM)
+# This config is designed to fit on consumer GPUs by dramatically reducing all memory-consuming parameters
+fcn3_minimal_test:
+    <<: *ENSEMBLE_BASE
+    wandb_group: "fcn3_minimal_test"
+
+    # Drastically reduced for small GPU
+    ensemble_size: 2        # Reduced from 16
+    batch_size: 1           # Reduced from 16
+
+    # Smaller model dimensions
+    scale_factor: 3         # Reduced from 2 (reduces spatial resolution)
+    atmo_embed_dim: 16      # Reduced from 45
+    surf_embed_dim: 20      # Reduced from 56
+    aux_embed_dim: 8        # Reduced from 36
+    num_layers: 4           # Reduced from 10
+
+    # Smaller training set for faster iteration
+    n_train_samples_per_epoch: 256
+    n_eval_samples: 32
+
+    # Smaller validation steps
+    valid_autoreg_steps: 4  # Reduced from 19
+
+    lr: 5E-4
+    max_epochs: 10
