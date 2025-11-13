@@ -1,7 +1,7 @@
 base_config: &BASE_CONFIG
 
     # metadata file for the dataset
-    metadata_json_path: "/metadata/data.json"
+    metadata_json_path: "./metadata/data.json"
 
     # data
     train_data_path: "/train"
