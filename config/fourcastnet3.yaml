@@ -384,3 +384,25 @@ fcn3_minimal_test:
 
     lr: 5E-4
     max_epochs: 10
+
+# Ultra-minimal deterministic config for tiny GPUs (4-8GB VRAM)
+# Deterministic model (no ensemble) with minimal parameters
+fcn3_ultra_minimal:
+    <<: *DETERMINISTIC_BASE
+    wandb_group: "fcn3_ultra_minimal"
+
+    # Smallest possible settings
+    batch_size: 1
+    scale_factor: 4         # Even lower resolution
+    atmo_embed_dim: 8       # Minimal embedding
+    surf_embed_dim: 12
+    aux_embed_dim: 4
+    num_layers: 2           # Only 2 layers
+
+    # Minimal training
+    n_train_samples_per_epoch: 64
+    n_eval_samples: 16
+    valid_autoreg_steps: 2
+
+    lr: 5E-4
+    max_epochs: 5
