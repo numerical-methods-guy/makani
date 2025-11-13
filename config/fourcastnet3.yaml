@@ -12,13 +12,13 @@ base_config: &BASE_CONFIG
     img_shape_y: 1440
 
     # files used for normalization of the data
-    min_path: "/stats/mins.npy"
-    max_path: "/stats/maxs.npy"
-    time_means_path:   "/stats/time_means.npy"
-    global_means_path: "/stats/global_means.npy"
-    global_stds_path:  "/stats/global_stds.npy"
-    time_diff_means_path: "/stats/time_diff_means.npy"
-    time_diff_stds_path: "/stats/time_diff_stds.npy"
+    min_path: "./stats/mins.npy"
+    max_path: "./stats/maxs.npy"
+    time_means_path:   "./stats/time_means.npy"
+    global_means_path: "./stats/global_means.npy"
+    global_stds_path:  "./stats/global_stds.npy"
+    time_diff_means_path: "./stats/time_diff_means.npy"
+    time_diff_stds_path: "./stats/time_diff_stds.npy"
 
     # architecture related hyperparameters
     nettype: "FCN3"
