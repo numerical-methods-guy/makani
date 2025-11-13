@@ -406,3 +406,6 @@ fcn3_ultra_minimal:
 
     lr: 5E-4
     max_epochs: 5
+
+    # Disable wandb for testing
+    log_to_wandb: !!bool False
